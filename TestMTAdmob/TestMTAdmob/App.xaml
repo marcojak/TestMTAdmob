@@ -1,8 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              x:Class="TestMTAdmob.App">
     <Application.Resources>
 
+        <ResourceDictionary>
+            <!--Global Styles-->
+            <Style TargetType="controls:AdView">
+                <Setter Property="HeightRequest" >
+                    <Setter.Value>
+                        <OnIdiom Phone="50" Tablet="90"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

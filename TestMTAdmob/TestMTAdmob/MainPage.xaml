@@ -2,13 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TestMTAdmob"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              x:Class="TestMTAdmob.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+
+        <Label Text="Let's test an MTAdmob!" 
+               HorizontalOptions="Center"
+               VerticalOptions="CenterAndExpand" />
+
+        <ListView VerticalOptions="FillAndExpand"></ListView>
+
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Button Text="Is Interstitial Loaded" Clicked="IsInterstitialLoaded"></Button>
+            <Button Text="Load Interstitial" Clicked="LoadInterstitial"></Button>
+            <Button Text="Show Interstitial" Clicked="ShowInterstitial"></Button>
+            <Button Text="Is Rewarded Video Loaded" Clicked="IsRewardedVideoLoaded"></Button>
+            <Button Text="Load Rewarded Video" Clicked="LoadRewardedVideo"></Button>
+            <Button Text="Show Rewarded Video" Clicked="ShowRewardedVideo"></Button>
+        </StackLayout>
+
+        <!-- Banner -->
+        <controls:AdView x:Name="myAds" PersonalizedAds="true" AdsId="ca-app-pub-3940256099942544/6300978111" VerticalOptions="End" ></controls:AdView>
+
     </StackLayout>
 
 </ContentPage>

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using MarcTron.Plugin;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -9,6 +11,8 @@ namespace TestMTAdmob
         public App()
         {
             InitializeComponent();
+            //Here you can add your test devices if needed
+            //CrossMTAdmob.Current.TestDevices = new List<string>() {"yourtestdeviceID"};
 
             MainPage = new MainPage();
         }
