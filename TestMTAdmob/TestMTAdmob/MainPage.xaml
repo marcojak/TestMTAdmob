@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:TestMTAdmob"
              xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
-             x:Class="TestMTAdmob.MainPage">
+             x:Class="TestMTAdmob.MainPage"
+             x:Name="This">
+    <ContentPage.BindingContext>
+        <x:Reference Name="This" />
+    </ContentPage.BindingContext>
 
     <StackLayout>
 
@@ -11,7 +15,7 @@
                HorizontalOptions="Center"
                VerticalOptions="CenterAndExpand" />
 
-        <ListView VerticalOptions="FillAndExpand"></ListView>
+        <ListView x:Name="MylistView" VerticalOptions="FillAndExpand" ItemsSource="{Binding MtEvents}"></ListView>
 
         <StackLayout VerticalOptions="EndAndExpand">
             <Button Text="Is Interstitial Loaded" Clicked="IsInterstitialLoaded"></Button>
