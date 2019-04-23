@@ -27,7 +27,7 @@
         </StackLayout>
 
         <!-- Banner -->
-        <controls:AdView PersonalizedAds="true" AdsId="ca-app-pub-3940256099942544/6300978111" VerticalOptions="End" ></controls:AdView>
+        <controls:AdView x:Name="myAds" PersonalizedAds="true" AdsId="ca-app-pub-3940256099942544/6300978111" VerticalOptions="End" ></controls:AdView>
 
     </StackLayout>
 
