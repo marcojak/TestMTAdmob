@@ -13,7 +13,7 @@
 
         <Label Text="Let's test an MTAdmob!" 
                HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand" />
+               VerticalOptions="Start" />
 
         <ListView x:Name="MylistView" VerticalOptions="FillAndExpand" ItemsSource="{Binding MtEvents}"></ListView>
 
@@ -27,7 +27,7 @@
         </StackLayout>
 
         <!-- Banner -->
-        <controls:AdView x:Name="myAds" PersonalizedAds="true" AdsId="ca-app-pub-3940256099942544/6300978111" VerticalOptions="End" ></controls:AdView>
+        <controls:AdView PersonalizedAds="true" AdsId="ca-app-pub-3940256099942544/6300978111" VerticalOptions="End" ></controls:AdView>
 
     </StackLayout>
 
