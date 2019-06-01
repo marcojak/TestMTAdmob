@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Google.MobileAds;
 using UIKit;
 
 namespace TestMTAdmob.iOS
@@ -23,6 +24,7 @@ namespace TestMTAdmob.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            MobileAds.Configure("ca-app-pub-3940256099942544~3347511713");
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
