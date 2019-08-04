@@ -14,6 +14,9 @@
                  HorizontalOptions="CenterAndExpand" />
 
           <controls:MTAdView x:Name="myAds2" PersonalizedAds="false"/>
-      </StackLayout>
+
+            <Button Text="Show interstitial ad" Clicked="ShowInterstitialAd"/>
+            <Button Text="Show Rewarded ad" Clicked="ShowRewardedAd"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

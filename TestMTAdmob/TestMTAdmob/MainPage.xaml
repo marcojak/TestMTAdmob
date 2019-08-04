@@ -11,7 +11,7 @@
                HorizontalOptions="Center"
                VerticalOptions="CenterAndExpand" />
 
-        <Button Clicked="Button_OnClicked" Text="Next Page"></Button>
+        <Button Clicked="Button_OnClicked" Text="Next Page"/>
 
         <controls:MTAdView PersonalizedAds="true"/>
 
