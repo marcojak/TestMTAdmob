@@ -26,8 +26,13 @@ namespace TestMTAdmob
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            if (_shouldSetEvents)
-                SetEvents();
+            SetEvents();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            DisableEvents();
+            return base.OnBackButtonPressed();
         }
 
         void SetEvents()
@@ -49,6 +54,24 @@ namespace TestMTAdmob
             }
         }
 
+        private void DisableEvents()
+        {
+            _shouldSetEvents = true;
+            CrossMTAdmob.Current.OnRewardedVideoStarted -= Current_OnRewardedVideoStarted;
+            CrossMTAdmob.Current.OnRewarded -= Current_OnRewarded;
+            CrossMTAdmob.Current.OnRewardedVideoAdClosed -= Current_OnRewardedVideoAdClosed;
+            CrossMTAdmob.Current.OnRewardedVideoAdFailedToLoad -= Current_OnRewardedVideoAdFailedToLoad;
+            CrossMTAdmob.Current.OnRewardedVideoAdLeftApplication -= Current_OnRewardedVideoAdLeftApplication;
+            CrossMTAdmob.Current.OnRewardedVideoAdLoaded -= Current_OnRewardedVideoAdLoaded;
+            CrossMTAdmob.Current.OnRewardedVideoAdOpened -= Current_OnRewardedVideoAdOpened;
+
+            CrossMTAdmob.Current.OnInterstitialLoaded -= Current_OnInterstitialLoaded;
+            CrossMTAdmob.Current.OnInterstitialOpened -= Current_OnInterstitialOpened;
+            CrossMTAdmob.Current.OnInterstitialClosed -= Current_OnInterstitialClosed;
+        }
+
+        #region Events from Ads
+        
         private void Current_OnInterstitialClosed(object sender, EventArgs e)
         {
             Debug.WriteLine("OnInterstitialClosed");
@@ -119,7 +142,9 @@ namespace TestMTAdmob
             Console.WriteLine("MyAdsAdsClicked");
         }
 
+        #endregion
 
+        #region Button events
         private void LoadReward_OnClicked(object sender, EventArgs e)
         {
             CrossMTAdmob.Current.LoadRewardedVideo("ca-app-pub-3940256099942544/5224354917");
@@ -155,21 +180,6 @@ namespace TestMTAdmob
             DisableEvents();
             Navigation.PushAsync(new SecondPage());
         }
-
-        private void DisableEvents()
-        {
-            _shouldSetEvents = true;
-            CrossMTAdmob.Current.OnRewardedVideoStarted -= Current_OnRewardedVideoStarted;
-            CrossMTAdmob.Current.OnRewarded -= Current_OnRewarded;
-            CrossMTAdmob.Current.OnRewardedVideoAdClosed -= Current_OnRewardedVideoAdClosed;
-            CrossMTAdmob.Current.OnRewardedVideoAdFailedToLoad -= Current_OnRewardedVideoAdFailedToLoad;
-            CrossMTAdmob.Current.OnRewardedVideoAdLeftApplication -= Current_OnRewardedVideoAdLeftApplication;
-            CrossMTAdmob.Current.OnRewardedVideoAdLoaded -= Current_OnRewardedVideoAdLoaded;
-            CrossMTAdmob.Current.OnRewardedVideoAdOpened -= Current_OnRewardedVideoAdOpened;
-
-            CrossMTAdmob.Current.OnInterstitialLoaded -= Current_OnInterstitialLoaded;
-            CrossMTAdmob.Current.OnInterstitialOpened -= Current_OnInterstitialOpened;
-            CrossMTAdmob.Current.OnInterstitialClosed -= Current_OnInterstitialClosed;
-        }
+        #endregion
     }
 }

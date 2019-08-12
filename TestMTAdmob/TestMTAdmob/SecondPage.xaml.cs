@@ -14,14 +14,12 @@ namespace TestMTAdmob
         public SecondPage()
         {
             InitializeComponent();
-
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            if (_shouldSetEvents)
-                SetEvents();
+            SetEvents();
         }
 
         protected override bool OnBackButtonPressed()
@@ -49,9 +47,9 @@ namespace TestMTAdmob
             }
         }
 
-        protected override void OnDisappearing()
+        private void DisableEvents()
         {
-            base.OnDisappearing();
+            _shouldSetEvents = true;
             CrossMTAdmob.Current.OnRewardedVideoStarted -= Current_OnRewardedVideoStarted;
             CrossMTAdmob.Current.OnRewarded -= Current_OnRewarded;
             CrossMTAdmob.Current.OnRewardedVideoAdClosed -= Current_OnRewardedVideoAdClosed;
@@ -65,6 +63,7 @@ namespace TestMTAdmob
             CrossMTAdmob.Current.OnInterstitialClosed -= Current_OnInterstitialClosed;
         }
 
+        #region Events from Ads
         private void Current_OnInterstitialClosed(object sender, EventArgs e)
         {
             Debug.WriteLine("2OnInterstitialClosed");
@@ -135,6 +134,9 @@ namespace TestMTAdmob
             Console.WriteLine("2MyAdsAdsClicked");
         }
 
+        #endregion
+
+        #region Button events
 
         private void LoadReward_OnClicked(object sender, EventArgs e)
         {
@@ -166,20 +168,6 @@ namespace TestMTAdmob
             myLabel.Text = CrossMTAdmob.Current.IsInterstitialLoaded().ToString();
         }
 
-        private void DisableEvents()
-        {
-            _shouldSetEvents = true;
-            CrossMTAdmob.Current.OnRewardedVideoStarted -= Current_OnRewardedVideoStarted;
-            CrossMTAdmob.Current.OnRewarded -= Current_OnRewarded;
-            CrossMTAdmob.Current.OnRewardedVideoAdClosed -= Current_OnRewardedVideoAdClosed;
-            CrossMTAdmob.Current.OnRewardedVideoAdFailedToLoad -= Current_OnRewardedVideoAdFailedToLoad;
-            CrossMTAdmob.Current.OnRewardedVideoAdLeftApplication -= Current_OnRewardedVideoAdLeftApplication;
-            CrossMTAdmob.Current.OnRewardedVideoAdLoaded -= Current_OnRewardedVideoAdLoaded;
-            CrossMTAdmob.Current.OnRewardedVideoAdOpened -= Current_OnRewardedVideoAdOpened;
-
-            CrossMTAdmob.Current.OnInterstitialLoaded -= Current_OnInterstitialLoaded;
-            CrossMTAdmob.Current.OnInterstitialOpened -= Current_OnInterstitialOpened;
-            CrossMTAdmob.Current.OnInterstitialClosed -= Current_OnInterstitialClosed;
-        }
+        #endregion
     }
 }
