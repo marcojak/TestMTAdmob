@@ -40,6 +40,7 @@ namespace TestMTAdmob
                 CrossMTAdmob.Current.OnRewardedVideoAdLeftApplication += Current_OnRewardedVideoAdLeftApplication;
                 CrossMTAdmob.Current.OnRewardedVideoAdLoaded += Current_OnRewardedVideoAdLoaded;
                 CrossMTAdmob.Current.OnRewardedVideoAdOpened += Current_OnRewardedVideoAdOpened;
+                CrossMTAdmob.Current.OnRewardedVideoAdCompleted += Current_OnRewardedVideoAdCompleted;
 
                 CrossMTAdmob.Current.OnInterstitialLoaded += Current_OnInterstitialLoaded;
                 CrossMTAdmob.Current.OnInterstitialOpened += Current_OnInterstitialOpened;
@@ -112,6 +113,11 @@ namespace TestMTAdmob
         private void Current_OnRewardedVideoStarted(object sender, EventArgs e)
         {
             Debug.WriteLine("2OnRewardedVideoStarted");
+        }
+
+        private void Current_OnRewardedVideoAdCompleted(object sender, EventArgs e)
+        {
+            Debug.WriteLine("2OnRewardedVideoAdCompleted");
         }
 
         private void MyAds_AdVOpened(object sender, EventArgs e)

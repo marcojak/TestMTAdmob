@@ -15,8 +15,6 @@ namespace TestMTAdmob.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
-            // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
-            MobileAds.Initialize(ApplicationContext, "ca-app-pub-3940256099942544~3347511713");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             //This is a test Id: ca-app-pub-3940256099942544~3347511713
             //Remember to replace it with yours
