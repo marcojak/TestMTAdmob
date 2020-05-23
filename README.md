@@ -15,4 +15,4 @@ Tutorial: https://www.xamarinexpert.it/admob-made-easy/
 
 Source code for MTAdmob: https://github.com/marcojak/MTAdmob
 
-To report any issue: https://bitbucket.org/marcojak81/mtadmob
+To report any issue: https://github.com/marcojak/TestMTAdmob
