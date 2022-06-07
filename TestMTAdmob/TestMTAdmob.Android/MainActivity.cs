@@ -16,9 +16,7 @@ namespace TestMTAdmob.Droid
 
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
-            //This is a test Id: ca-app-pub-3940256099942544~3347511713
-            //Remember to replace it with yours
-            MobileAds.Initialize(ApplicationContext, "ca-app-pub-3940256099942544~3347511713");
+            MobileAds.Initialize(ApplicationContext);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
