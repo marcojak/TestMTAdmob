@@ -1,0 +1,3 @@
+# https://github.com/marcojak/MTAdmob/issues/98
+-keep class com.google.android.gms.ads.MobileAdsInitProvider
+-keep class androidx.work.impl.WorkManagerInitializer
